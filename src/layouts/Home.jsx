@@ -29,10 +29,11 @@ const Home = () => {
       try {
         setUser(await getUserInfo({ token }))
       } catch (error) {
-        window.localStorage.removeItem('token')
-        window.localStorage.removeItem('refreshToken')
+        // window.localStorage.removeItem('token')
+        // window.localStorage.removeItem('refreshToken')
 
-        navigate('/login')
+        // navigate('/login')
+        console.log(error)
       }
     }
 
@@ -40,7 +41,7 @@ const Home = () => {
     //   return navigate('/login')
     // }
 
-    // setUserData()
+    setUserData()
   }, [])
 
   return (
