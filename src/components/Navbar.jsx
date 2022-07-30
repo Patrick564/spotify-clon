@@ -4,7 +4,6 @@ const Navbar = ({ username, image }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const openMenu = () => {
-    console.log('openMenu')
     setIsOpen(!isOpen)
   }
 

@@ -48,11 +48,11 @@ const Home = () => {
 
   return (
     <div className='relative grid grid-cols-[1fr_3fr] grid-rows-[60px_3fr] h-screen'>
-      <Navbar username={user?.name} image={user?.images} />
+      {user && <Navbar username={user?.name} image={user?.images} />}
 
-      <Playlists username={user?.id} token={token} loadPlaylist={handleLoadPlaylist} />
+      {user && <Playlists username={user?.id} token={token} loadPlaylist={handleLoadPlaylist} />}
 
-      <PlaylistItems playlistId={playlist} />
+      {playlist && <PlaylistItems playlistId={playlist} />}
 
       {/* <Player /> */}
     </div>
