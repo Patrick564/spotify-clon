@@ -1,5 +1,5 @@
 {
     "redirects": [
-        { "source": "/login/:params*", "destination": "/login" }
+        { "source": "/(.*)", "destination": "/" }
     ]
 }
