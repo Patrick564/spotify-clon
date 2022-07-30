@@ -1,5 +1,5 @@
 {
-    "rewrites": [
+    "redirects": [
         { "source": "/login/:params*", "destination": "/login" }
     ]
 }
