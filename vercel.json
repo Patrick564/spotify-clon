@@ -1,5 +1,6 @@
 {
     "rewrites": [
-        { "source": "/login?:token?:refresh_token", "destination": "/login" }
+        { "source": "/login", "destination": "/login" },
+        { "source": "/login(*)", "destination": "/login" }
     ]
 }
