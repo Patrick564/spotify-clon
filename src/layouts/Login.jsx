@@ -1,6 +1,15 @@
+import { useEffect } from 'react'
 import LoginSpotifyButton from '../components/LoginButton'
 
 const LoginLayout = () => {
+  let accessToken = window.localStorage.getItem('token')
+
+  useEffect(() => {
+    if (accessToken) {
+      return navigate('/')
+    }
+  }, [])
+
   return (
     <div className='border-blue-500 border'>
       <h1>Login to App</h1>

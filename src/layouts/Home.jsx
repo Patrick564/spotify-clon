@@ -37,9 +37,9 @@ const Home = () => {
       }
     }
 
-    if (!token) {
-      return navigate('/login')
-    }
+    // if (!token) {
+    //   return navigate('/login')
+    // }
 
     setUserData()
   }, [])

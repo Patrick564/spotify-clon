@@ -17,10 +17,7 @@ const LoginSpotifyButton = () => {
       window.localStorage.setItem('token', accessToken)
       window.localStorage.setItem('refreshToken', refreshToken)
 
-      return navigate('/')
-    }
-
-    if (accessToken) {
+      console.log(accessToken)
       return navigate('/')
     }
   }, [accessToken])
