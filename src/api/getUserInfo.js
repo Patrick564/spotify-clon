@@ -10,7 +10,7 @@ const getUserInfo = async ({ token }) => {
     const { error } = await response.json()
 
     if (error.message === 'The access token expired') {
-      throw new Error('The access token expired')
+      throw new Error('The access token expired', )
     }
   }
 

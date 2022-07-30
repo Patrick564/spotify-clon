@@ -29,10 +29,12 @@ const Home = () => {
       try {
         setUser(await getUserInfo({ token }))
       } catch (error) {
-        // window.localStorage.removeItem('token')
-        // window.localStorage.removeItem('refreshToken')
+        if (error.message === 'The access token expired') {
+          window.localStorage.removeItem('token')
+          window.localStorage.removeItem('refreshToken')
 
-        // navigate('/login')
+          navigate('/login')
+        }
         console.log(error)
       }
     }

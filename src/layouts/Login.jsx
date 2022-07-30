@@ -9,7 +9,6 @@ const LoginLayout = () => {
   let accessToken = window.localStorage.getItem('token')
 
   useEffect(() => {
-    console.log(accessToken)
     if (accessToken) {
       return navigate('/')
     }
