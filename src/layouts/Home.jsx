@@ -27,7 +27,6 @@ const Home = () => {
   useEffect(() => {
     const setUserData = async () => {
       try {
-        // const userData = await getUserInfo({ token })
         setUser(await getUserInfo({ token }))
       } catch (error) {
         window.localStorage.removeItem('token')
