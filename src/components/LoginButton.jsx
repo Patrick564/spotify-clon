@@ -9,10 +9,6 @@ const LoginSpotifyButton = () => {
     const queryset = window.location.search
     const urlParams = new URLSearchParams(queryset)
 
-    if (accessToken) {
-      return navigate('/')
-    }
-
     if (!accessToken && urlParams.has('token')) {
       accessToken = urlParams.get('token')
       let refreshToken = urlParams.get('refresh_token')
@@ -20,8 +16,13 @@ const LoginSpotifyButton = () => {
       window.location.search = ''
       window.localStorage.setItem('token', accessToken)
       window.localStorage.setItem('refreshToken', refreshToken)
+
+      return navigate('/')
     }
 
+    if (accessToken) {
+      return navigate('/')
+    }
   }, [accessToken])
 
   return (
