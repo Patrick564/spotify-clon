@@ -40,7 +40,7 @@ const Home = () => {
     //   return navigate('/login')
     // }
 
-    setUserData()
+    // setUserData()
   }, [])
 
   return (
