@@ -23,7 +23,7 @@ const PlaylistItems = ({ playlistId }) => {
   }, [playlistId])
 
   return (
-    <div className='text-white bg-local bg-gradient-to-b from-sky-500 via-slate-900 to-slate-900 overflow-auto col-start-2 row-span-2 flex flex-col gap-3 pt-[60px] p-5 h-full z-10'>
+    <div className='text-white bg-local bg-gradient-to-b from-sky-700 via-slate-900 to-slate-900 overflow-auto col-start-2 row-span-2 flex flex-col gap-3 pt-[60px] p-5 h-full z-10'>
       <div className='flex justify-start items-center gap-5 px-3 pt-12 pb-7'>
         <img src={cover?.images[0]?.url} width={192} height={192} alt="Cover playlist" />
 

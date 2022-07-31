@@ -6,44 +6,21 @@ import PlaylistItems from '../components/PlaylistItems'
 import Navbar from '../components/Navbar'
 // import Player from '../components/Player'
 
-import getUserInfo from '../api/getUserInfo'
+import useSetUser from '../hooks/useSetUser'
 
 const Home = () => {
-  const [playlist, setPlaylist] = useState('')
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    images: '',
-    id: '',
-  })
-
   const navigate = useNavigate()
+  const user = useSetUser()
+  const [playlist, setPlaylist] = useState('')
+
   const token = window.localStorage.getItem('token')
 
-  const handleLoadPlaylist = async (e) => {
-    setPlaylist(e.target.id)
+  const handleLoadPlaylist = (event) => {
+    setPlaylist(event.target.id)
   }
 
   useEffect(() => {
-    const setUserData = async () => {
-      try {
-        setUser(await getUserInfo({ token }))
-      } catch (error) {
-        if (error.message === 'The access token expired') {
-          window.localStorage.removeItem('token')
-          window.localStorage.removeItem('refreshToken')
-
-          navigate('/login')
-        }
-        console.log(error)
-      }
-    }
-
-    // if (!token) {
-    //   return navigate('/login')
-    // }
-
-    setUserData()
+    if (!token) { return navigate('/login') }
   }, [])
 
   return (
