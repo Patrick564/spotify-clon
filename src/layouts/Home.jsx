@@ -24,7 +24,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='relative grid grid-cols-[1fr_3fr] grid-rows-[60px_3fr] h-screen'>
+    <div className='relative grid grid-cols-[0.9fr_3fr] grid-rows-[60px_3fr] h-screen'>
       {user && <Navbar username={user?.name} image={user?.images} />}
 
       {user && <Playlists username={user?.id} loadPlaylist={handleLoadPlaylist} />}

@@ -23,8 +23,8 @@ const LoginSpotifyButton = () => {
   }, [accessToken])
 
   return (
-    // <a href='https://spotify-clon-api.up.railway.app/api/login'>
-    <a href='http://localhost:3000/api/login'>
+    <a href='https://spotify-clon-api.up.railway.app/api/login'>
+    {/* <a href='http://localhost:3000/api/login'> */}
       Login with Spotify
     </a>
   )

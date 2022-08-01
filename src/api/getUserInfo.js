@@ -14,8 +14,6 @@ const getUserInfo = async ({ token }) => {
     }
   }
 
-  // console.log(await response.json());
-
   const { display_name: name, email, id, images } = await response.json()
 
   return { name, email, id, images }

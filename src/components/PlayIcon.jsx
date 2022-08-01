@@ -8,4 +8,4 @@ const PlayIcon = () => {
   )
 }
 
-return PlayIcon
+export default PlayIcon
