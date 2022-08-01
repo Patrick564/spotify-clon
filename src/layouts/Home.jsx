@@ -23,11 +23,13 @@ const Home = () => {
     if (!token) { return navigate('/login') }
   }, [])
 
+  console.log(user)
+
   return (
     <div className='relative grid grid-cols-[1fr_3fr] grid-rows-[60px_3fr] h-screen'>
       {user && <Navbar username={user?.name} image={user?.images} />}
 
-      {user && <Playlists username={user?.id} token={token} loadPlaylist={handleLoadPlaylist} />}
+      {user && <Playlists username={user?.id} loadPlaylist={handleLoadPlaylist} />}
 
       {playlist && <PlaylistItems playlistId={playlist} />}
 
