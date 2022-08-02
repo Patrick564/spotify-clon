@@ -19,7 +19,7 @@ const Navbar = ({ username, image }) => {
 
   return (
     <nav className='text-white bg-inherit backdrop-blur-lg absolute col-start-2 row-span-1 w-full flex flex-row justify-end px-5 py-3 z-50'>
-      <div className='bg-slate-800 rounded-full flex flex-row items-center gap-2 p-0.5' onClick={openMenu}>
+      <div className='bg-slate-800 rounded-full flex flex-row items-center gap-2 p-0.5 cursor-pointer' onClick={openMenu}>
         <LoadImage loading={Boolean(image?.length)} image={image} size={'2xl'} />
 
         <span className='font-bold text-sm'>{username}</span>

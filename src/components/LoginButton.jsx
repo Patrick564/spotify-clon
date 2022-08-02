@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const LoginSpotifyButton = () => {
+  const loginUrl = import.meta.env.VITE_LOGIN_URI
+
   let navigate = useNavigate()
   let accessToken = window.localStorage.getItem('token')
 
@@ -23,8 +25,7 @@ const LoginSpotifyButton = () => {
   }, [accessToken])
 
   return (
-    <a href='https://spotify-clon-api.up.railway.app/api/login'>
-    {/* <a href='http://localhost:3000/api/login'> */}
+    <a href={loginUrl}>
       Login with Spotify
     </a>
   )

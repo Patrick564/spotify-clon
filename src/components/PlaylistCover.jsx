@@ -1,21 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
-const imageSizes = {
-  'xl': '24',
-  '2xl': '32',
-  '6x': '192',
-  '7x': '232'
-}
-
-const LoadImage = ({ loading, image, size }) => {
+const PlaylistCover = ({ loading, image, size}) => {
   if (loading) {
     return (
       <img
-        className='rounded-full'
+        className='shadow-xl shadow-gray-900'
         src={image[0]?.url}
-        width={imageSizes[size]}
-        height={imageSizes[size]}
         alt='Profile picture'
       />
     )
@@ -30,4 +21,4 @@ const LoadImage = ({ loading, image, size }) => {
   )
 }
 
-export default LoadImage
+export default PlaylistCover
