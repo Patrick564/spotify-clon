@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 
-import Home from './layouts/Home'
 import Login from './layouts/Login'
 import Main from './layouts/Main'
 
@@ -21,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/login' element={<Login />} />
       <Route path='/playlists' element={<Main><PlaylistsRoute /></Main>} />
       <Route path='/playlists/:playlistId' element={<Main><PlaylistItems /></Main>} />
-      <Route path='/search' element={<Main activeSearchBar={true}><SearchMenu /></Main>} />
+      <Route path='/search' element={<Main activeSearch={true}><SearchMenu /></Main>} />
       <Route path='/' element={<Main><HomeMenu /></Main>} />
     </Routes>
   </BrowserRouter>

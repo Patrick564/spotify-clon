@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 
 import getPlaylists from '../api/getPlaylists'
 
-const useSetPlaylists = ({ username }) => {
+const useSetPlaylists = () => {
   const [playlists, setPlaylists] = useState('')
 
   const token = window.localStorage.getItem('token')
 
   useEffect(() => {
     const setPlaylistsData = async () => {
-      setPlaylists(await getPlaylists({ username, token }))
+      setPlaylists(await getPlaylists({ token }))
     }
 
     if (!playlists) {
       setPlaylistsData()
     }
-  }, [username])
+  }, [])
 
   return playlists
 }

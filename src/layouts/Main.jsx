@@ -1,23 +1,21 @@
 import { useState, useEffect, cloneElement, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Playlists from '../components/Playlists'
-import PlaylistItems from '../components/PlaylistItems'
+import SideMenu from '../components/SideMenu/SideMenu'
 import Navbar from '../components/Navbar'
-import HomeMenu from '../components/HomeMenu'
 
 import useSetUser from '../hooks/useSetUser'
 
 import getSearch from '../api/getSearch'
 
-const Main = ({ children, activeSearchBar }) => {
+const Main = ({ children, activeSearch }) => {
   const navigate = useNavigate()
   const user = useSetUser()
   const [display, setDisplay] = useState('home')
   const [playlist, setPlaylist] = useState('')
   const [searchFilter, setSearchFilter] = useState('all')
 
-  const searchF = useRef(null)
+  const searchQuery = useRef(null)
   const [searchResult, setSearchResult] = useState()
 
   const token = window.localStorage.getItem('token')
@@ -34,24 +32,37 @@ const Main = ({ children, activeSearchBar }) => {
     setSearchFilter(event.target.id)
   }
 
+  // se queda
   const handleSearch = async () => {
-    console.log(searchF.current.value)
-    setSearchResult(await getSearch({ query: searchF.current.value, type: searchFilter, token }))
+    setSearchResult(await getSearch({
+      query: searchQuery.current.value,
+      type: searchFilter,
+      token
+    }))
   }
 
   useEffect(() => {
     if (!token) { return navigate('/login') }
   }, [])
 
-  console.log(searchResult)
-
   return (
     <div className='relative grid grid-cols-[245px_3fr] grid-rows-[60px_3fr] h-screen'>
-      {user && <Navbar username={user?.name} image={user?.images} searchBar={activeSearchBar} searchFilter={searchFilter} handleSearch={handleSearch} a={searchF} />}
+      <Navbar
+        user={user}
+        activeSearch={activeSearch}
+        handleSearch={handleSearch}
+        inputRef={searchQuery}
+      />
 
-      {user && <Playlists username={user?.id} loadPlaylist={handleLoadPlaylist} changeMenu={handleMenu} />}
+      <SideMenu
+        loadPlaylist={handleLoadPlaylist}
+        changeMenu={handleMenu}
+      />
 
-      {cloneElement(children, { setSearchFilter: handleSearchFilter, searchResult: searchResult })}
+      {cloneElement(children, {
+        setSearchFilter: handleSearchFilter,
+        searchResult: searchResult
+      })}
     </div>
   )
 }
