@@ -1,5 +1,5 @@
 const getPlaylists = async ({ username, token }) => {
-  const response = await fetch(`https://api.spotify.com/v1/users/${username}/playlists`, {
+  const response = await fetch(`https://api.spotify.com/v1/me/playlists`, {
     headers: {
       'Authorization': `Bearer ${ token }`,
       'Content-Type': 'application/json'

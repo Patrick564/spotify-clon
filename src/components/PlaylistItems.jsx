@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import PlaylistCover from './PlaylistCover'
 
@@ -10,7 +11,9 @@ import PlayIcon from './PlayIcon'
 import TimeSongIcon from './TimeSongIcon'
 import LogoIcon from './LogoIcon'
 
-const PlaylistItems = ({ playlistId }) => {
+const PlaylistItems = () => {
+  const { playlistId } = useParams()
+
   const [cover, setCover] = useState()
   const [playlistItems, setPlaylistItems] = useState()
   const [recommendations, setRecommendations] = useState()
@@ -21,8 +24,6 @@ const PlaylistItems = ({ playlistId }) => {
     const setItems = async () => {
       setPlaylistItems(await getPlaylistItems({ playlistId, token }))
     }
-
-
 
     const setHeader = async () => {
       setCover(await getPlaylist({ playlistId, token }))
@@ -44,10 +45,8 @@ const PlaylistItems = ({ playlistId }) => {
     setExtras()
   }, [playlistItems])
 
-  console.log(recommendations)
-
   return (
-    <div className='text-white bg-local bg-gradient-to-b from-sky-800 via-slate-900 to-slate-900 overflow-y-auto overflow-x-hidden col-start-2 row-span-2 flex flex-col gap-3 pt-[60px] px-10 z-10'>
+    <div className='text-white bg-local bg-gradient-to-b from-sky-800 via-slate-900 to-slate-900 overflow-y-auto overflow-x-hidden col-start-2 row-span-2 flex flex-col gap-3 px-10 z-10'>
       <div className='flex justify-start items-center gap-5 pt-12 pb-3 -mx-5 lg:-mx-2'>
         <div className='w-48 h-48 lg:w-[232px] lg:h-[232px] flex justify-center items-center'>
           <PlaylistCover loading={Boolean(cover?.images?.length)} image={cover?.images} size={'6x'} rounded={false} />
