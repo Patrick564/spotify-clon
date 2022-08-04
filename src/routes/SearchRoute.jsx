@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 
-import MenuContainer from '../Containers/MenuContainer'
-import SearchFilterAll from './SearchFilterAll'
-import SearchFilters from './SearchFilters'
+import MenuContainer from '../components/Containers/MenuContainer'
+import SearchFilterAll from '../components/Search/SearchFilterAll'
+import SearchFilters from '../components/Search/SearchFilters'
 
-import getSearch from '../../api/getSearch'
-import GridContainer from '../Containers/GridContainer'
-import PlaylistTracks from '../PlaylistItems/PlaylistTracks'
+import getSearch from '../api/getSearch'
+import GridContainer from '../components/Containers/GridContainer'
+import PlaylistTracks from '../components/PlaylistItems/PlaylistTracks'
 
-const SearchMenu = ({ searchQuery, token }) => {
+const SearchRoute = ({ searchQuery, token }) => {
   const [searchResult, setSearchResult] = useState()
   const [searchFilter, setSearchFilter] = useState('all')
 
@@ -45,4 +45,4 @@ const SearchMenu = ({ searchQuery, token }) => {
   )
 }
 
-export default SearchMenu
+export default SearchRoute

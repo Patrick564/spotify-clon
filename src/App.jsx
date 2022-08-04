@@ -1,9 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
-import LoginSpotify from './api/login'
-
 import { Link } from 'react-router-dom'
 
 function App() {
