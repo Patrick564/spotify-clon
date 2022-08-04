@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import MenuContainer from '../components/MenuContainer'
+import MenuContainer from '../components/Containers/MenuContainer'
 
 import getSavedTracks from '../api/getSavedTracks'
 import getPlaylists from '../api/getPlaylists'

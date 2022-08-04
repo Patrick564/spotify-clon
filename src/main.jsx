@@ -8,11 +8,11 @@ import Login from './layouts/Login'
 import Main from './layouts/Main'
 
 import HomeMenu from './components/HomeMenu'
-import SearchMenu from './components/SearchMenu'
+import SearchMenu from './components/Search/SearchMenu'
 
 import './styles/global.css'
 import PlaylistsRoute from './routes/PlaylistsRoute'
-import PlaylistItems from './components/PlaylistItems'
+import PlaylistItems from './components/PlaylistItems/PlaylistItems'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

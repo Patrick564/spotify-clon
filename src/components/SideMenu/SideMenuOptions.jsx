@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import HomeIcon from '../HomeIcon'
-import SearchIcon from '../SearchIcon'
+import SearchIcon from '../Search/SearchIcon'
 import LibraryIcon from '../LibraryIcon'
 
 const menuOptions = {

@@ -7,7 +7,7 @@ import LogoIcon from '../LogoIcon'
 import SideMenuOptions from './SideMenuOptions'
 import SideMenuPlaylists from './SideMenuPlaylists'
 
-const SideMenu = ({ loadPlaylist }) => {
+const SideMenu = () => {
   const playlists = useSetPlaylists()
   const [selected, setSelected] = useState('')
 

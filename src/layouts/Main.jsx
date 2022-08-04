@@ -2,43 +2,22 @@ import { useState, useEffect, cloneElement, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import SideMenu from '../components/SideMenu/SideMenu'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar/Navbar'
 
 import useSetUser from '../hooks/useSetUser'
 
-import getSearch from '../api/getSearch'
-
 const Main = ({ children, activeSearch }) => {
   const navigate = useNavigate()
-  const user = useSetUser()
-  const [display, setDisplay] = useState('home')
-  const [playlist, setPlaylist] = useState('')
-  const [searchFilter, setSearchFilter] = useState('all')
 
-  const searchQuery = useRef(null)
-  const [searchResult, setSearchResult] = useState()
+  const queryRef = useRef(null)
+  const user = useSetUser()
+
+  const [searchQuery, setSearchQuery] = useState('')
 
   const token = window.localStorage.getItem('token')
 
-  const handleMenu = (event) => {
-    setDisplay(!display)
-  }
-
-  const handleLoadPlaylist = (event) => {
-    setPlaylist(event.target.id)
-  }
-
-  const handleSearchFilter = (event) => {
-    setSearchFilter(event.target.id)
-  }
-
-  // se queda
-  const handleSearch = async () => {
-    setSearchResult(await getSearch({
-      query: searchQuery.current.value,
-      type: searchFilter,
-      token
-    }))
+  const handleSearch = () => {
+    setSearchQuery(queryRef.current.value)
   }
 
   useEffect(() => {
@@ -51,17 +30,14 @@ const Main = ({ children, activeSearch }) => {
         user={user}
         activeSearch={activeSearch}
         handleSearch={handleSearch}
-        inputRef={searchQuery}
+        inputRef={queryRef}
       />
 
-      <SideMenu
-        loadPlaylist={handleLoadPlaylist}
-        changeMenu={handleMenu}
-      />
+      <SideMenu />
 
       {cloneElement(children, {
-        setSearchFilter: handleSearchFilter,
-        searchResult: searchResult
+        searchQuery: searchQuery,
+        token: token
       })}
     </div>
   )

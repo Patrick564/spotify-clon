@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import LoadImage from './LoadImage'
-import MenuIcon from './MenuIcon'
+import LoadImage from '../LoadImage'
+import MenuIcon from '../MenuIcon'
 
-import logout from '../utils/logout'
+import logout from '../../utils/logout'
 
 // TODO: separate component for search menu and user menu
 const Navbar = ({ user, activeSearch, handleSearch, inputRef }) => {
