@@ -25,8 +25,6 @@ const PlaylistsRoute = () => {
     fetchUserPlaylists()
   }, [token])
 
-  console.log(userPlaylists)
-
   return (
     <MenuContainer>
       <h1 className='text-2xl font-bold mt-5 mb-3'>Playlists</h1>
@@ -39,7 +37,7 @@ const PlaylistsRoute = () => {
                 return (
                   <span>
                     <span>{track?.track?.artists[0]?.name} <span className='text-gray-400 ml-0.5'>{track?.track?.name}</span></span>
-                    <span> ° </span>
+                    <span> &#8226; </span>
                   </span>
                 )
               })}

@@ -1,5 +1,5 @@
-import PlayIcon from '../PlayIcon'
-import TimeSongIcon from '../TimeSongIcon'
+import PlayIcon from '../Icons/PlayIcon'
+import TimeSongIcon from '../Icons/TimeSongIcon'
 
 const PlaylistTracks = ({ items, children }) => {
   return (

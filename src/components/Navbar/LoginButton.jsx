@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const LoginSpotifyButton = () => {
-  const loginUrl = import.meta.env.VITE_LOGIN_URI
+const loginUrl = import.meta.env.VITE_LOGIN_URI
 
+const LoginButton = () => {
   let navigate = useNavigate()
+
   let accessToken = window.localStorage.getItem('token')
 
   useEffect(() => {
-    const queryset = window.location.search
-    const urlParams = new URLSearchParams(queryset)
+    const urlParams = new URLSearchParams(window.location.search)
 
     if (!accessToken && urlParams.has('token')) {
       accessToken = urlParams.get('token')
@@ -19,16 +19,15 @@ const LoginSpotifyButton = () => {
       window.localStorage.setItem('token', accessToken)
       window.localStorage.setItem('refreshToken', refreshToken)
 
-      console.log(accessToken)
       return navigate('/')
     }
   }, [accessToken])
 
   return (
-    <a href={loginUrl}>
-      Login with Spotify
+    <a className='rounded-full bg-white text-black p-4 flex justify-center items-center font-bold cursor-pointer hover:scale-110' href={loginUrl}>
+      Login
     </a>
   )
 }
 
-export default LoginSpotifyButton
+export default LoginButton

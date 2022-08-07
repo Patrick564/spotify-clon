@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 
+import getSearch from '../api/getSearch'
+
 import MenuContainer from '../components/Containers/MenuContainer'
 import SearchFilterAll from '../components/Search/SearchFilterAll'
 import SearchFilters from '../components/Search/SearchFilters'
 
-import getSearch from '../api/getSearch'
 import GridContainer from '../components/Containers/GridContainer'
 import PlaylistTracks from '../components/PlaylistItems/PlaylistTracks'
 
@@ -36,7 +37,7 @@ const SearchRoute = ({ searchQuery, token }) => {
     <MenuContainer>
       <SearchFilters setFilter={handleChangeFilter} />
 
-      {searchFilter === 'all' &&  <SearchFilterAll topItem={topItem} tracks={songs} />}
+      {(searchFilter === 'all' && searchQuery) && <SearchFilterAll topItem={topItem} tracks={songs} />}
       {searchFilter === 'playlists' && <GridContainer content={playlists?.items} />}
       {searchFilter === 'albums' && <GridContainer content={albums?.items} />}
       {searchFilter === 'artists' && <GridContainer content={artists?.items} />}

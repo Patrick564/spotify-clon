@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import useSetPlaylists from '../../hooks/useSetPlaylists'
 
-import LogoIcon from '../LogoIcon'
+import LogoIcon from '../Icons/LogoIcon'
 
 import SideMenuOptions from './SideMenuOptions'
 import SideMenuPlaylists from './SideMenuPlaylists'

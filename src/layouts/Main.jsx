@@ -20,10 +20,6 @@ const Main = ({ children, activeSearch }) => {
     setSearchQuery(queryRef.current.value)
   }
 
-  useEffect(() => {
-    if (!token) { return navigate('/login') }
-  }, [])
-
   return (
     <div className='relative grid grid-cols-[245px_3fr] grid-rows-[60px_3fr] h-screen'>
       <Navbar

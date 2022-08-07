@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import LoginSpotifyButton from '../components/LoginButton'
+import LoginSpotifyButton from '../components/Navbar/LoginButton'
 
 const LoginLayout = () => {
   let navigate = useNavigate()
@@ -16,7 +16,7 @@ const LoginLayout = () => {
 
   return (
     <div className='border-blue-500 border'>
-      <h1>Login to App</h1>
+      <h1>Login into the App...</h1>
 
       <LoginSpotifyButton />
     </div>

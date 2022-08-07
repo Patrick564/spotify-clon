@@ -10,8 +10,8 @@ import PlaylistTracks from './PlaylistTracks'
 import PlaylistRecommended from './playlistRecommended'
 
 import PlaylistCover from '../PlaylistCover'
-import TimeSongIcon from '../TimeSongIcon'
-import LogoIcon from '../LogoIcon'
+import TimeSongIcon from '../Icons/TimeSongIcon'
+import LogoIcon from '../Icons/LogoIcon'
 
 const PlaylistItems = () => {
   const { playlistId } = useParams()
